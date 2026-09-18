@@ -68,25 +68,25 @@ Do not implement the following unless the project scope is explicitly expanded:
 
 ### M1 - Foundation
 
-- Initialize frontend and backend
-- Configure TypeScript, SQLite, React Router, Tailwind CSS, shadcn/ui, ESLint, and Prettier
-- Set repository structure and configure CORS
+- Initialize one AdonisJS application with React and Inertia
+- Configure TypeScript, SQLite, Vite, Tailwind CSS, shadcn/ui, ESLint, and Prettier
+- Understand the AdonisJS/Inertia project structure and initial request lifecycle
 
 ### M2 - Authentication
 
 - Create users table and model
-- Choose authentication mechanism
-- Implement register, login, logout, and `/auth/me`
-- Add protected frontend routes
+- Configure AdonisJS session authentication
+- Implement register, login, and logout
+- Add guest/auth middleware and a typed shared authenticated-user prop
 
 ### M3 - Posts
 
 - Create posts table and model
-- Implement image upload, post creation, retrieval, and own-post deletion
+- Implement image upload, Inertia post pages, creation, and own-post deletion
 
 ### M4 - Feed
 
-- Define feed response contract and pagination
+- Define typed feed page props and pagination
 - Build `PostCard` and feed page
 - Add loading and empty states
 
@@ -96,13 +96,13 @@ Do not implement the following unless the project scope is explicitly expanded:
 
 ### M6 - Profiles
 
-- Implement profile API and profile page
+- Implement profile routes, controller props, and profile page
 - Implement own-profile editing and avatars
 
 ### M7 - Following
 
 - Create follows table and model
-- Implement follow/unfollow API, counts, and frontend integration
+- Implement follow/unfollow actions, counts, and Inertia integration
 
 ### M8 - Quality
 
@@ -112,7 +112,7 @@ Do not implement the following unless the project scope is explicitly expanded:
 
 - Choose hosting and persistent database strategy
 - Choose production image storage
-- Deploy frontend and backend with HTTPS and environment variables
+- Deploy the single AdonisJS/Inertia application with HTTPS and environment variables
 
 ### M10 - Portfolio Polish
 
@@ -129,17 +129,15 @@ The MVP is complete when a new user can:
 5. View another user's profile and follow or unfollow them.
 6. Delete their own post and log out.
 
-It must also block unauthorized resource modification, handle validation failures cleanly, work at desktop and mobile sizes, use SPA navigation and REST communication, store images outside SQLite, include setup instructions, and be demonstrable from a clean account.
+It must also block unauthorized resource modification, handle validation failures cleanly, work at desktop and mobile sizes, use Inertia navigation and form submissions, avoid a separate public REST API for normal page flows, store images outside SQLite, include setup instructions, and be demonstrable from a clean account.
 
 ## Decisions Still Open
 
 Resolve these only when implementation requires them. Choose the simplest option that satisfies the MVP, document the decision, and avoid unrelated architecture changes.
 
-- Session versus access-token authentication
-- TanStack Query versus simpler API state handling
 - Production image-storage provider
 - Deployment provider
-- Pagination and API error formats
+- Exact pagination format for Inertia page props
 - Exact validation and upload limits
 - Public-profile visibility for unauthenticated users
 - Whether the feed stays global or becomes followed-users only after the MVP
